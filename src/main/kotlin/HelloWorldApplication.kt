@@ -14,14 +14,18 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
     }
 
     override fun run(configuration: HelloWorldConfiguration, environment: Environment) {
-        val resource = HelloWorldResource(
+        val helloResource = HelloWorldResource(
                 configuration.template,
                 configuration.defaultName
         )
+        val addResource = AddResource(configuration.amountToAdd)
+
+
         val healthCheck = TemplateHealthCheck(configuration.template)
 
         environment.healthChecks().register("template", healthCheck)
-        environment.jersey().register(resource)
+        environment.jersey().register(helloResource)
+        environment.jersey().register(addResource)
     }
 
     companion object {
