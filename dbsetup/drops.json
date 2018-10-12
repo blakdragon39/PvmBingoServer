@@ -1,0 +1,359 @@
+[
+  {
+    "name":"Dragonbone Necklace",
+    "boss": "Vorkath",
+    "item_file": "dragonbone_necklace.png",
+    "boss_file": "vorkath.png",
+    "drop_rate": 1000
+  },
+  {
+    "name": "Tyrannical Ring",
+    "boss": "Callisto",
+    "item_file": "tyrannical_ring.png",
+    "boss_file": "callisto.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Dragon Chainbody",
+    "boss": "Kalphite Queen",
+    "item_file": "dragon_chainbody.png",
+    "boss_file": "kalphite_queen.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Seers Ring",
+    "boss": "Dagannoth Prime",
+    "item_file": "seers_ring.png",
+    "boss_file": "dagannoth_prime.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Mud Battlestaff",
+    "boss": "Dagannoth Prime",
+    "item_file": "mud_battlestaff.png",
+    "boss_file": "dagannoth_prime.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Warrior Ring",
+    "boss": "Dagannoth Rex",
+    "item_file": "warrior_ring.png",
+    "boss_file": "dagannoth_rex.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Berserker Ring",
+    "boss": "Dagannoth Rex",
+    "item_file": "berserker_ring.png",
+    "boss_file": "dagannoth_rex.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Seercull",
+    "boss": "Dagannoth Supreme",
+    "item_file": "seercull.png",
+    "boss_file": "dagannoth_supreme.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Archers Ring",
+    "boss": "Dagannoth Supreme",
+    "item_file": "archers_ring.png",
+    "boss_file": "dagannoth_supreme.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Bandos Hilt",
+    "boss": "General Graardor",
+    "item_file": "bandos_hilt.png",
+    "boss_file": "graardor.png",
+    "drop_rate": 508
+  },
+  {
+    "name": "Bandos Boots",
+    "boss": "General Graardor",
+    "item_file": "bandos_boots.png",
+    "boss_file": "graardor.png",
+    "drop_rate": 384
+  },
+  {
+    "name": "Bandos Chestplate",
+    "boss": "General Graardor",
+    "item_file": "bandos_chestplate.png",
+    "boss_file": "graardor.png",
+    "drop_rate": 384
+  },
+  {
+    "name": "Bandos Tassets",
+    "boss": "General Graardor",
+    "item_file": "bandos_tassets.png",
+    "boss_file": "graardor.png",
+    "drop_rate": 384
+  },
+  {
+    "name": "Staff of the Dead",
+    "boss": "Kril Tsutsaroth",
+    "item_file": "staff_of_the_dead.png",
+    "boss_file": "kril_tsutsaroth.png",
+    "drop_rate": 508
+  },
+  {
+    "name": "Zamorak Hilt",
+    "boss": "Kril Tsutsaroth",
+    "item_file": "zamorak_hilt.png",
+    "boss_file": "kril_tsutsaroth.png",
+    "drop_rate": 508
+  },
+  {
+    "name": "Steam Battlestaff",
+    "boss": "Kril Tsutsaroth",
+    "item_file": "steam_battlestaff.png",
+    "boss_file": "kril_tsutsaroth.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Zamorakian Spear",
+    "boss": "Kril Tsutsaroth",
+    "item_file": "zamorakian_spear.png",
+    "boss_file": "kril_tsutsaroth.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Armadyl Hilt",
+    "boss": "Kree'Arra",
+    "item_file": "armadyl_hilt.png",
+    "boss_file": "kreearra.png",
+    "drop_rate": 508
+  },
+  {
+    "name": "Armadyl Helmet",
+    "boss": "Kree'Arra",
+    "item_file": "armadyl_helmet.png",
+    "boss_file": "kreearra.png",
+    "drop_rate": 508
+  },
+  {
+    "name": "Armadyl Chestplate",
+    "boss": "Kree'Arra",
+    "item_file": "armadyl_chestplate.png",
+    "boss_file": "kreearra.png",
+    "drop_rate": 384
+  },
+  {
+    "name": "Armadyl Chainskirt",
+    "boss": "Kree'Arra",
+    "item_file": "armadyl_chainskirt.png",
+    "boss_file": "kreearra.png",
+    "drop_rate": 384
+  },
+  {
+    "name": "Saradomin Hilt",
+    "boss": "Commander Zilyana",
+    "item_file": "saradomin_hilt.png",
+    "boss_file": "zilyana.png",
+    "drop_rate": 508
+  },
+  {
+    "name": "Saradomin Sword",
+    "boss": "Commander Zilyana",
+    "item_file": "saradomin_sword.png",
+    "boss_file": "zilyana.png",
+    "drop_rate": 127
+  },
+  {
+    "name": "Armadyl Crossbow",
+    "boss": "Commander Zilyana",
+    "item_file": "armadyl_crossbow.png",
+    "boss_file": "zilyana.png",
+    "drop_rate": 508
+  },
+  {
+    "name": "Saradomin's Light",
+    "boss": "Commander Zilyana",
+    "item_file": "saradomins_light.png",
+    "boss_file": "zilyana.png",
+    "drop_rate": 254
+  },
+  {
+    "name": "Uncut Onyx",
+    "boss": "Zulrah",
+    "item_file": "uncut_onyx.png",
+    "boss_file": "zulrah.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Tanzanite Fang",
+    "boss": "Zulrah",
+    "item_file": "tanzanite_fang.png",
+    "boss_file": "zulrah.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Magic Fang",
+    "boss": "Zulrah",
+    "item_file": "magic_fang.png",
+    "boss_file": "zulrah.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Serpentine Visage",
+    "boss": "Zulrah",
+    "item_file": "serpentine_visage.png",
+    "boss_file": "zulrah.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Treasonous Ring",
+    "boss": "Venenatis",
+    "item_file": "treasonous_ring.png",
+    "boss_file": "venenatis.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "KQ Head",
+    "boss": "Kalphite Queen",
+    "item_file": "kq_head.png",
+    "boss_file": "kalphite_queen.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Dragon 2h Sword",
+    "boss": "Callisto",
+    "item_file": "dragon_2h_sword.png",
+    "boss_file": "callisto.png",
+    "drop_rate": 256
+  },
+  {
+    "name": "Dragon Pickaxe",
+    "boss": "Callisto",
+    "item_file": "dragon_pickaxe.png",
+    "boss_file": "callisto.png",
+    "drop_rate": 171
+  },
+  {
+    "name": "Ring of the Gods",
+    "boss": "Vet'ion",
+    "item_file": "ring_of_the_gods.png",
+    "boss_file": "vetion.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Dragon 2h Sword",
+    "boss": "Vet'ion",
+    "item_file": "dragon_2h_sword.png",
+    "boss_file": "vetion.png",
+    "drop_rate": 256
+  },
+  {
+    "name": "Dragon Pickaxe",
+    "boss": "Vet'ion",
+    "item_file": "dragon_pickaxe.png",
+    "boss_file": "vetion.png",
+    "drop_rate": 171
+  },
+  {
+    "name": "Dragon 2h Sword",
+    "boss": "Callisto",
+    "item_file": "dragon_2h_sword.png",
+    "boss_file": "callisto.png",
+    "drop_rate": 256
+  },
+  {
+    "name": "Dragon Pickaxe",
+    "boss": "Callisto",
+    "item_file": "dragon_pickaxe.png",
+    "boss_file": "callisto.png",
+    "drop_rate": 171
+  },
+  {
+    "name": "Dragon 2h Sword",
+    "boss": "Venenatis",
+    "item_file": "dragon_2h_sword.png",
+    "boss_file": "venenatis.png",
+    "drop_rate": 256
+  },
+  {
+    "name": "Dragon Pickaxe",
+    "boss": "Venenatis",
+    "item_file": "dragon_pickaxe.png",
+    "boss_file": "venenatis.png",
+    "drop_rate": 171
+  },
+  {
+    "name": "Granite Gloves",
+    "boss": "Grotesque Guardians",
+    "item_file": "granite_gloves.png",
+    "boss_file": "grotesque_guardians.png",
+    "drop_rate": 500
+  },
+  {
+    "name": "Granite Ring",
+    "boss": "Grotesque Guardians",
+    "item_file": "granite_ring.png",
+    "boss_file": "grotesque_guardians.png",
+    "drop_rate": 500
+  },
+  {
+    "name": "Black Tourmaline Core",
+    "boss": "Grotesque Guardians",
+    "item_file": "black_tourmaline_core.png",
+    "boss_file": "grotesque_guardians.png",
+    "drop_rate": 1000
+  },
+  {
+    "name": "Granite Hammer",
+    "boss": "Grotesque Guardians",
+    "item_file": "granite_hammer.png",
+    "boss_file": "grotesque_guardians.png",
+    "drop_rate": 750
+  },
+  {
+    "name": "Kraken Tentacle",
+    "boss": "Kraken",
+    "item_file": "kraken_tentacle.png",
+    "boss_file": "kraken.png",
+    "drop_rate": 300
+  },
+  {
+    "name": "Trident of the Seas",
+    "boss": "Kraken",
+    "item_file": "trident_of_the_seas.png",
+    "boss_file": "kraken.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Smoke Battlestaff",
+    "boss": "Thermonuclear Smoke Devil",
+    "item_file": "smoke_battlestaff.png",
+    "boss_file": "thermonuclear_smoke_devil.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Occult Necklace",
+    "boss": "Thermonuclear Smoke Devil",
+    "item_file": "occult_necklace.png",
+    "boss_file": "thermonuclear_smoke_devil.png",
+    "drop_rate": 350
+  },
+  {
+    "name": "Dragon Chainbody",
+    "boss": "Thermonuclear Smoke Devil",
+    "item_file": "dragon_chainbody.png",
+    "boss_file": "thermonuclear_smoke_devil.png",
+    "drop_rate": 2000
+  },
+  {
+    "name": "Dragon Pickaxe",
+    "boss": "King Black Dragon",
+    "item_file": "dragon_pickaxe.png",
+    "boss_file": "king_black_dragon.png",
+    "drop_rate": 1500
+  },
+  {
+    "name": "Dragon Pickaxe",
+    "boss": "KBD Heads",
+    "item_file": "dragon_pickaxe.png",
+    "boss_file": "kbd_heads.png",
+    "drop_rate": 128
+  }
+]

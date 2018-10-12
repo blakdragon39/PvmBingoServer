@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS drops;
+DROP TABLE IF EXISTS bosses;
+DROP TABLE IF EXISTS items;
+
+CREATE TABLE bosses(
+    name VARCHAR(255) PRIMARY KEY,
+    file VARCHAR(255)
+);
+
+CREATE TABLE items(
+    name VARCHAR(255) PRIMARY KEY,
+    file VARCHAR(255)
+);
+
+CREATE TABLE drops(
+    boss VARCHAR(255),
+    item VARCHAR(255),
+    drop_rate INT,
+    FOREIGN KEY (boss) REFERENCES bosses(name) ON DELETE CASCADE,
+    FOREIGN KEY (item) REFERENCES items(name) ON DELETE CASCADE
+);
