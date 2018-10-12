@@ -2,6 +2,8 @@ import health.TemplateHealthCheck
 import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
+import org.jdbi.v3.core.Jdbi
+
 
 class HelloWorldApplication : Application<HelloWorldConfiguration>() {
 
@@ -10,7 +12,9 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
     }
 
     override fun initialize(bootstrap: Bootstrap<HelloWorldConfiguration>) {
-        // nothing to do yet
+        val jdbi = Jdbi.create("jdbc:mysql://localhost:3306/pvmbingo", "root", "password")
+        val handle = jdbi.open()
+        System.out.println("test output: " + handle.toString())
     }
 
     override fun run(configuration: HelloWorldConfiguration, environment: Environment) {
