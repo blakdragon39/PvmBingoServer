@@ -4,7 +4,8 @@ import org.jdbi.v3.core.mapper.RowMapper
 import org.jdbi.v3.core.statement.StatementContext
 import java.sql.ResultSet
 
-class Drop(val itemName: String,
+class Drop(val id: Int,
+           val itemName: String,
            val itemFile: String,
            val bossName: String,
            val bossFile: String,
@@ -13,6 +14,7 @@ class Drop(val itemName: String,
 class DropMapper : RowMapper<Drop> {
     override fun map(rs: ResultSet, ctx: StatementContext): Drop {
         return Drop(
+                rs.getInt("id"),
                 rs.getString("item_name"),
                 rs.getString("item_file"),
                 rs.getString("boss_name"),

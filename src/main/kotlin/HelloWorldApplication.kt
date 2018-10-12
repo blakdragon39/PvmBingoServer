@@ -47,5 +47,4 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
             HelloWorldApplication().run(*args)
         }
     }
-
 }
