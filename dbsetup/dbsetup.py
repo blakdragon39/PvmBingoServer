@@ -1,4 +1,3 @@
-import subprocess
 import json
 import mysql.connector
 

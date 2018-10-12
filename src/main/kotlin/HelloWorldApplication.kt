@@ -2,7 +2,10 @@ import health.TemplateHealthCheck
 import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
+import models.Drop
+import models.DropMapper
 import org.jdbi.v3.core.Jdbi
+import resources.DropsResource
 
 
 class HelloWorldApplication : Application<HelloWorldConfiguration>() {
@@ -13,9 +16,13 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
 
     override fun initialize(bootstrap: Bootstrap<HelloWorldConfiguration>) {
         //todo export username/password
-        val jdbi = Jdbi.create("jdbc:mysql://localhost:3306/pvmbingo", "root", "")
-        val handle = jdbi.open()
-        System.out.println("test output: " + handle.toString())
+//        val jdbi = Jdbi.create("jdbc:mysql://localhost:3306/pvmbingo", "root", "")
+//        val drops = jdbi.withHandle<List<Drop>, Exception> { handle ->
+//            handle.createQuery("select * from drops")
+//                    .map(DropMapper())
+//                    .list()
+//        }
+//        drops.forEach { System.out.println(it.itemName + " " + it.bossName) }
     }
 
     override fun run(configuration: HelloWorldConfiguration, environment: Environment) {
@@ -24,13 +31,14 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
                 configuration.defaultName
         )
         val addResource = AddResource(configuration.amountToAdd)
-
+        val dropsResource = DropsResource()
 
         val healthCheck = TemplateHealthCheck(configuration.template)
 
         environment.healthChecks().register("template", healthCheck)
         environment.jersey().register(helloResource)
         environment.jersey().register(addResource)
+        environment.jersey().register(dropsResource)
     }
 
     companion object {
