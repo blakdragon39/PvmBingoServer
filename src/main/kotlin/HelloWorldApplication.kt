@@ -12,6 +12,7 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
     }
 
     override fun initialize(bootstrap: Bootstrap<HelloWorldConfiguration>) {
+        //todo export username/password
         val jdbi = Jdbi.create("jdbc:mysql://localhost:3306/pvmbingo", "root", "password")
         val handle = jdbi.open()
         System.out.println("test output: " + handle.toString())
