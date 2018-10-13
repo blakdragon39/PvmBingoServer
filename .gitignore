@@ -2,3 +2,4 @@
 .idea
 dbcreds.py
 *.pyc
+out

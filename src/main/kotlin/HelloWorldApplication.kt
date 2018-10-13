@@ -8,6 +8,10 @@ import org.jdbi.v3.core.Jdbi
 import resources.DropsResource
 
 
+fun main(args: Array<String>) {
+    HelloWorldApplication().run(*args)
+}
+
 class HelloWorldApplication : Application<HelloWorldConfiguration>() {
 
     override fun getName(): String {
@@ -39,12 +43,5 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
         environment.jersey().register(helloResource)
         environment.jersey().register(addResource)
         environment.jersey().register(dropsResource)
-    }
-
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            HelloWorldApplication().run(*args)
-        }
     }
 }
