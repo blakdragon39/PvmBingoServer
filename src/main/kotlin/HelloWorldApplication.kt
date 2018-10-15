@@ -2,10 +2,10 @@ import health.TemplateHealthCheck
 import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
-import models.Drop
-import models.DropMapper
 import org.jdbi.v3.core.Jdbi
 import resources.DropsResource
+import resources.NewCardResource
+import java.util.*
 
 
 fun main(args: Array<String>) {
@@ -14,19 +14,19 @@ fun main(args: Array<String>) {
 
 class HelloWorldApplication : Application<HelloWorldConfiguration>() {
 
+    companion object {
+        lateinit var jdbi: Jdbi
+        lateinit var random: Random
+    }
+
     override fun getName(): String {
         return "hello-world"
     }
 
     override fun initialize(bootstrap: Bootstrap<HelloWorldConfiguration>) {
         //todo export username/password
-//        val jdbi = Jdbi.create("jdbc:mysql://localhost:3306/pvmbingo", "root", "")
-//        val drops = jdbi.withHandle<List<Drop>, Exception> { handle ->
-//            handle.createQuery("select * from drops")
-//                    .map(DropMapper())
-//                    .list()
-//        }
-//        drops.forEach { System.out.println(it.itemName + " " + it.bossName) }
+        jdbi = Jdbi.create("jdbc:mysql://localhost:3306/pvmbingo", "root", "password")
+        random = Random()
     }
 
     override fun run(configuration: HelloWorldConfiguration, environment: Environment) {
@@ -35,13 +35,13 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
                 configuration.defaultName
         )
         val addResource = AddResource(configuration.amountToAdd)
-        val dropsResource = DropsResource()
 
         val healthCheck = TemplateHealthCheck(configuration.template)
 
         environment.healthChecks().register("template", healthCheck)
         environment.jersey().register(helloResource)
         environment.jersey().register(addResource)
-        environment.jersey().register(dropsResource)
+        environment.jersey().register(DropsResource())
+        environment.jersey().register(NewCardResource())
     }
 }
