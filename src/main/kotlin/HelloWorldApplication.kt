@@ -24,8 +24,7 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
     }
 
     override fun initialize(bootstrap: Bootstrap<HelloWorldConfiguration>) {
-        //todo export username/password
-        jdbi = Jdbi.create("jdbc:mysql://localhost:3306/pvmbingo", "root", "password")
+        jdbi = Jdbi.create("jdbc:mysql://localhost:3306/pvmbingo", DB_USERNAME, DB_PASSWORD)
         random = Random()
     }
 

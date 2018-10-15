@@ -1,21 +1,33 @@
 package resources
 
-import models.Card
-import models.CardItem
-import models.Drop
-import models.DropMapper
-import javax.ws.rs.GET
-import javax.ws.rs.Path
-import javax.ws.rs.Produces
-import javax.ws.rs.QueryParam
+import models.*
+import org.hibernate.validator.constraints.NotEmpty
+import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
+import javax.ws.rs.core.Response
 
 @Path("/new-card")
 @Produces(MediaType.APPLICATION_JSON)
 class NewCardResource {
 
     @GET
-    fun newCard(@QueryParam("username") username: String): Card {
+    fun newCard(@QueryParam("username") @NotEmpty username: String?): Card {
+        //todo username nullable and validate
+        //todo make sure this user doesn't already have a card
+        if (username == null) {
+            throw WebApplicationException("username must not be null", Response.Status.BAD_REQUEST)
+        }
+
+        val existingCardItems = HelloWorldApplication.jdbi.withHandle<List<CardItem>, Exception> { handle ->
+            handle.createQuery("SELECT * FROM card_items")
+                    .map(CardItemMapper())
+                    .toList()
+        }
+
+        if (existingCardItems.isNotEmpty()) {
+            throw WebApplicationException("a card already exists for this username", Response.Status.BAD_REQUEST);
+        }
+
         val drops = HelloWorldApplication.jdbi.withHandle<MutableList<Drop>, Exception> { handle ->
             handle.createQuery("select * from drops")
                     .map(DropMapper())
@@ -26,7 +38,7 @@ class NewCardResource {
 
         for (i in 0 until 25) {
             val drop = drops.removeAt(HelloWorldApplication.random.nextInt(drops.size - 1))
-            cardItems.add(CardItem(drop, null))
+            cardItems.add(CardItem(drop, drop.id, username, null))
         }
 
         val card = Card(username, cardItems)
@@ -36,8 +48,11 @@ class NewCardResource {
     }
 
     private fun saveCard(card: Card) {
-        val handler = HelloWorldApplication.jdbi.transactionHandler
-        handler
+        HelloWorldApplication.jdbi.useHandle<Nothing> { handle ->
+            card.cardItems.forEach { item ->
+                handle.execute("INSERT INTO card_items(user_name, drop_id) VALUES(?, ?)", card.username, item.drop?.id)
+            }
+        }
     }
 }
 
