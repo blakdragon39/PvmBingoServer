@@ -2,6 +2,8 @@ package resources
 
 import models.*
 import org.hibernate.validator.constraints.NotEmpty
+import javax.validation.Valid
+import javax.validation.constraints.NotNull
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
@@ -11,11 +13,7 @@ import javax.ws.rs.core.Response
 class NewCardResource {
 
     @GET
-    fun newCard(@QueryParam("username") username: String?): Card {
-        if (username == null) {
-            throw WebApplicationException("username must not be null", Response.Status.BAD_REQUEST)
-        }
-
+    fun newCard(@QueryParam("username") @NotEmpty username: String): Card {
         val existingCardItems = BingoApplication.jdbi.withHandle<List<CardItem>, Exception> { handle ->
             handle.select("SELECT * FROM card_items WHERE user_name = ?", username)
                     .map(CardItemMapper())
@@ -33,7 +31,7 @@ class NewCardResource {
         return card
     }
 
-    private fun generateRandomCard(username: String) : List<CardItem> {
+    private fun generateRandomCard(username: String): List<CardItem> {
         val cardItems = mutableListOf<CardItem>()
 
         val drops = BingoApplication.jdbi.withHandle<MutableList<Drop>, Exception> { handle ->
@@ -64,11 +62,7 @@ class NewCardResource {
 class GetCardResource {
 
     @GET
-    fun getCard(@QueryParam("username") @NotEmpty username: String?): Card {
-        if (username == null) {
-            throw WebApplicationException("username must not be null", Response.Status.BAD_REQUEST)
-        }
-
+    fun getCard(@QueryParam("username") @NotEmpty username: String): Card {
         val existingCardItems = BingoApplication.jdbi.withHandle<List<CardItem>, Exception> { handle ->
             handle.select("SELECT * FROM card_items WHERE user_name = ?", username)
                     .map(CardItemMapper())
@@ -113,21 +107,9 @@ class GetAllCardsResource {
 class UpdateCardResource {
 
     @GET
-    fun updateCard(@QueryParam("username") username: String?,
-                   @QueryParam("proof") proof: String?,
-                   @QueryParam("dropId") dropId: Int?) {
-        if (username == null) {
-            throw WebApplicationException("username must not be null", Response.Status.BAD_REQUEST)
-        }
-
-        if (proof == null) {
-            throw WebApplicationException("proof must not be null", Response.Status.BAD_REQUEST)
-        }
-
-        if (dropId == null) {
-            throw WebApplicationException("dropId must not be null", Response.Status.BAD_REQUEST)
-        }
-
+    fun updateCard(@QueryParam("username") @NotEmpty username: String?,
+                   @QueryParam("proof") @NotEmpty proof: String?,
+                   @QueryParam("dropId") @NotEmpty dropId: Int?) {
         BingoApplication.jdbi.useHandle<Nothing> { handle ->
             handle.createUpdate("UPDATE card_items SET proof = :proof WHERE user_name = :username AND drop_id = :dropId")
                     .bind("proof", proof)

@@ -1,9 +1,7 @@
 import io.dropwizard.Configuration
 import org.hibernate.validator.constraints.NotEmpty
 
-class HelloWorldConfiguration : Configuration() {
+class BingoConfiguration : Configuration() {
     @NotEmpty lateinit var template: String
-    @NotEmpty lateinit var defaultName: String
 
-    var amountToAdd: Int = 0
 }
