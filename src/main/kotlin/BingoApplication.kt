@@ -3,16 +3,15 @@ import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
 import org.jdbi.v3.core.Jdbi
-import resources.DropsResource
-import resources.NewCardResource
+import resources.*
 import java.util.*
 
 
 fun main(args: Array<String>) {
-    HelloWorldApplication().run(*args)
+    BingoApplication().run(*args)
 }
 
-class HelloWorldApplication : Application<HelloWorldConfiguration>() {
+class BingoApplication : Application<HelloWorldConfiguration>() {
 
     companion object {
         lateinit var jdbi: Jdbi
@@ -29,18 +28,11 @@ class HelloWorldApplication : Application<HelloWorldConfiguration>() {
     }
 
     override fun run(configuration: HelloWorldConfiguration, environment: Environment) {
-        val helloResource = HelloWorldResource(
-                configuration.template,
-                configuration.defaultName
-        )
-        val addResource = AddResource(configuration.amountToAdd)
-
-        val healthCheck = TemplateHealthCheck(configuration.template)
-
-        environment.healthChecks().register("template", healthCheck)
-        environment.jersey().register(helloResource)
-        environment.jersey().register(addResource)
+        environment.healthChecks().register("template", TemplateHealthCheck(configuration.template))
         environment.jersey().register(DropsResource())
         environment.jersey().register(NewCardResource())
+        environment.jersey().register(GetCardResource())
+        environment.jersey().register(GetAllCardsResource())
+        environment.jersey().register(UpdateCardResource())
     }
 }
