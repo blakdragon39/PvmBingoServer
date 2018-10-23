@@ -35,5 +35,6 @@ class BingoApplication : Application<BingoConfiguration>() {
         environment.jersey().register(GetCardResource())
         environment.jersey().register(GetAllCardsResource())
         environment.jersey().register(UpdateCardResource())
+        environment.jersey().register(DeleteCardResource())
     }
 }

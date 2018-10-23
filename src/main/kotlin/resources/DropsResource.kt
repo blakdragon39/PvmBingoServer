@@ -119,6 +119,20 @@ class UpdateCardResource {
     }
 }
 
+@Path("/delete-card")
+@Produces(MediaType.APPLICATION_JSON)
+class DeleteCardResource {
+
+    @GET
+    fun deleteCard(@QueryParam("username") @NotEmpty username: String?) {
+        BingoApplication.jdbi.useHandle<Nothing> { handle ->
+            handle.createUpdate("DELETE FROM card_items WHERE USER_NAME = :username")
+                    .bind("username", username)
+                    .execute()
+        }
+    }
+}
+
 @Path("/get-drops")
 @Produces(MediaType.APPLICATION_JSON)
 class DropsResource {
