@@ -2,8 +2,6 @@ package resources
 
 import models.*
 import org.hibernate.validator.constraints.NotEmpty
-import javax.validation.Valid
-import javax.validation.constraints.NotNull
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
@@ -36,6 +34,7 @@ class NewCardResource {
 
         val drops = BingoApplication.jdbi.withHandle<MutableList<Drop>, Exception> { handle ->
             handle.select("select * from drops")
+                    .concurrentUpdatable()
                     .map(DropMapper())
                     .toMutableList()
         }
@@ -109,7 +108,7 @@ class UpdateCardResource {
     @GET
     fun updateCard(@QueryParam("username") @NotEmpty username: String?,
                    @QueryParam("proof") @NotEmpty proof: String?,
-                   @QueryParam("dropId") @NotEmpty dropId: Int?) {
+                   @QueryParam("dropId") dropId: Int?) {
         BingoApplication.jdbi.useHandle<Nothing> { handle ->
             handle.createUpdate("UPDATE card_items SET proof = :proof WHERE user_name = :username AND drop_id = :dropId")
                     .bind("proof", proof)
