@@ -343,10 +343,10 @@
     "drop_rate": 1500
   },
   {
-    "name": "Dragon Pickaxe",
-    "boss": "KBD Heads",
+    "name": "KBD Heads",
+    "boss": "King Black Dragon",
     "item_file": "dragon_pickaxe.png",
-    "boss_file": "kbd_heads.png",
+    "boss_file": "king_black_dragon.png",
     "drop_rate": 128
   },
   {
