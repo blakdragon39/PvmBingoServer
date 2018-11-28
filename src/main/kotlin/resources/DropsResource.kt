@@ -40,7 +40,7 @@ class NewCardResource {
         }
 
         for (i in 0 until 25) {
-            val drop = drops.removeAt(BingoApplication.random.nextInt(drops.size - 1))
+            val drop = drops.removeAt(BingoApplication.random.nextInt(drops.size))
             cardItems.add(CardItem(drop, drop.id, username, null))
         }
 
