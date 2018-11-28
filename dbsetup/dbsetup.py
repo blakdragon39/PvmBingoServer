@@ -17,7 +17,8 @@ cursor.execute(
         item_file VARCHAR(255) NOT NULL,
         boss_name VARCHAR(255) NOT NULL,
         boss_file VARCHAR(255) NOT NULL,
-        drop_rate INT NOT NULL)""")
+        drop_rate INT NOT NULL,
+        slayer_level INT)""")
 
 cursor.execute("DROP TABLE IF EXISTS card_items")
 cursor.execute(
@@ -34,11 +35,12 @@ with open('drops.json') as file_data:
         boss_name, boss_file = json_item['boss'], json_item['boss_file']
         item_name, item_file = json_item['name'], json_item['item_file']
         drop_rate = json_item['drop_rate']
-        print("Inserting " + boss_name + " " + boss_file + " " + item_name + " " + item_file + " " + str(drop_rate))
+        slayer_level = json_item['slayer_level']
+        print("Inserting " + boss_name + " " + boss_file + " " + item_name + " " + item_file + " " + str(drop_rate) + " " + str(slayer_level))
 
         cursor.execute("""
-            INSERT INTO drops (item_name, item_file, boss_name, boss_file, drop_rate) VALUES (%s, %s, %s, %s, %s)
-            """, (item_name, item_file, boss_name, boss_file, drop_rate))
+            INSERT INTO drops (item_name, item_file, boss_name, boss_file, drop_rate, slayer_level) VALUES (%s, %s, %s, %s, %s, %s)
+            """, (item_name, item_file, boss_name, boss_file, drop_rate, slayer_level))
 
 mydb.commit()
 mydb.close()

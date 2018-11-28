@@ -11,7 +11,8 @@ import javax.ws.rs.core.Response
 class NewCardResource {
 
     @GET
-    fun newCard(@QueryParam("username") @NotEmpty username: String): Card {
+    fun newCard(@QueryParam("username") @NotEmpty username: String,
+                @QueryParam("slayer_level") slayerLevel: Int?): Card {
         val existingCardItems = BingoApplication.jdbi.withHandle<List<CardItem>, Exception> { handle ->
             handle.select("SELECT * FROM card_items WHERE user_name = ?", username)
                     .map(CardItemMapper())
@@ -22,19 +23,22 @@ class NewCardResource {
             throw WebApplicationException("a card already exists for this username", Response.Status.BAD_REQUEST);
         }
 
-        val cardItems = generateRandomCard(username)
+        val cardItems = generateRandomCard(username, slayerLevel)
         val card = Card(username, cardItems)
         saveCard(card)
 
         return card
     }
 
-    private fun generateRandomCard(username: String): List<CardItem> {
+    private fun generateRandomCard(username: String, slayerLevel: Int?): List<CardItem> {
         val cardItems = mutableListOf<CardItem>()
 
         val drops = BingoApplication.jdbi.withHandle<MutableList<Drop>, Exception> { handle ->
-            handle.select("select * from drops")
-                    .concurrentUpdatable()
+            val query = when {
+                slayerLevel == null -> handle.select("select * from drops")
+                else -> handle.select("select * from drops  WHERE slayer_level <= ?", slayerLevel)
+            }
+            query.concurrentUpdatable()
                     .map(DropMapper())
                     .toMutableList()
         }
