@@ -21,6 +21,13 @@
     "drop_rate": 128
   },
   {
+    "name": "Dragon 2h Sword",
+    "boss": "Kalphite Queen",
+    "item_file": "dragon_2h_sword.png",
+    "boss_file": "kalphite_queen.png",
+    "drop_rate": 256
+  },
+  {
     "name": "Seers Ring",
     "boss": "Dagannoth Prime",
     "item_file": "seers_ring.png",
@@ -253,20 +260,6 @@
   },
   {
     "name": "Dragon 2h Sword",
-    "boss": "Callisto",
-    "item_file": "dragon_2h_sword.png",
-    "boss_file": "callisto.png",
-    "drop_rate": 256
-  },
-  {
-    "name": "Dragon Pickaxe",
-    "boss": "Callisto",
-    "item_file": "dragon_pickaxe.png",
-    "boss_file": "callisto.png",
-    "drop_rate": 171
-  },
-  {
-    "name": "Dragon 2h Sword",
     "boss": "Venenatis",
     "item_file": "dragon_2h_sword.png",
     "boss_file": "venenatis.png",
@@ -355,5 +348,75 @@
     "item_file": "dragon_pickaxe.png",
     "boss_file": "kbd_heads.png",
     "drop_rate": 128
+  },
+  {
+    "name": "Dragon 2h Sword",
+    "boss": "Chaos Elemental",
+    "item_file": "dragon_2h_sword.png",
+    "boss_file": "chaos_elemental.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Dragon Pickaxe",
+    "boss": "Chaos Elemental",
+    "item_file": "dragon_pickaxe.png",
+    "boss_file": "chaos_elemental.png",
+    "drop_rate": 128
+  },
+  {
+    "name": "Malediction Shard 3",
+    "boss": "Scorpia",
+    "item_file": "malediction_shard_3.png",
+    "boss_file": "scorpia.png",
+    "drop_rate": 256
+  },
+  {
+    "name": "Odium Shard 3",
+    "boss": "Scorpia",
+    "item_file": "odium_shard_3.png",
+    "boss_file": "scorpia.png",
+    "drop_rate": 256
+  },
+  {
+    "name": "Primordial Crystal",
+    "boss": "Cerberus",
+    "item_file": "primordial_crystal.png",
+    "boss_file": "cerberus.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Pegasian Crystal",
+    "boss": "Cerberus",
+    "item_file": "pegasian_crystal.png",
+    "boss_file": "cerberus.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Eternal Crystal",
+    "boss": "Cerberus",
+    "item_file": "eternal_crystal.png",
+    "boss_file": "cerberus.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Smouldering Stone",
+    "boss": "Cerberus",
+    "item_file": "smouldering_stone.png",
+    "boss_file": "cerberus.png",
+    "drop_rate": 512
+  },
+  {
+    "name": "Unsired",
+    "boss": "Abyssal Sire",
+    "item_file": "unsired.png",
+    "boss_file": "abyssal_sire.png",
+    "drop_rate": 100
+  },
+  {
+    "name": "Purple Chest",
+    "boss": "Olm",
+    "item_file": "purple_chest.png",
+    "boss_file": "olm.png",
+    "drop_rate": 100
   }
 ]
